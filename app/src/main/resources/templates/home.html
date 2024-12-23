@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Staff Home Page</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+    />
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"
+    ></script>
+</head>
+<style>
+    .container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: fit-content;
+ }
+
+ a {
+   color: white;
+   text-decoration: none;
+ }
+
+ .hero {
+   padding: 100px 0; /* Vertical padding for the hero section */
+   text-align: center; /* Center text in the hero section */
+   margin-bottom: 20px; /* Space below hero section */
+ }
+
+ .hero h1 {
+   margin-bottom: 20px; /* Space below the heading */
+ }
+
+ .card-title {
+   font-size: 1.5rem; /* Title size */
+   margin-bottom: 10px; /* Space below the title */
+ }
+
+ .card-text {
+   font-size: 1rem; /* Description size */
+ }
+
+ .btn {
+   width: 100%; /* Full-width button */
+   font-size: 1rem; /* Button text size */
+ }
+
+ .shadow-sm {
+   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Subtle shadow for cards */
+ }
+ body {
+   background-color: #f8f9fa; /* Light background for contrast */
+ }
+
+ /* Title styling */
+ .title {
+   text-align: center;
+   font-size: 2rem;
+   color: #2c3e50;
+   text-transform: uppercase;
+   border-bottom: 2px solid #3498db;
+   padding-bottom: 10px;
+ }
+
+</style>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">University Library</a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/search">Search Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/upload">Upload Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/books">All Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Sign Out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="hero">
+        <h2>Welcome back</h2>
+        <h5>From here you can navigate to all available actions.</h5>
+    </div>
+    <h4 class="text-center mb-4 title">Explore Our Services</h4>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm d-flex flex-column">
+                <div class="card-body flex-fill">
+                    <h5 class="card-title">Search Books</h5>
+                    <p class="card-text">
+                        Quickly search for book information based on their title.
+                    </p>
+                    <a href="/search" class="btn btn-primary mt-auto">Search Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm d-flex flex-column">
+                <div class="card-body flex-fill">
+                    <h5 class="card-title">Upload Form</h5>
+                    <p class="card-text">
+                        Upload new books in our exclusive directory.
+                    </p>
+                    <a href="/upload" class="btn btn-primary mt-auto"
+                    >Upload Form</a
+                    >
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm d-flex flex-column">
+                <div class="card-body flex-fill">
+                    <h5 class="card-title">All Books</h5>
+                    <p class="card-text">
+                        Quickly find all the books in our directory.
+                    </p>
+                    <a href="/books" class="btn btn-primary mt-auto"
+                    >Look at all available books</a
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

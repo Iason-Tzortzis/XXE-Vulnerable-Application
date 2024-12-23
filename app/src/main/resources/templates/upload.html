@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Import Books</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+    />
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"
+    ></script>
+</head>
+<style>
+    .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10rem;
+  width: fit-content;
+  margin-bottom: 10rem;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between form elements */
+}
+
+.upload-header{
+  color: red;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.file-input {
+  border: 2px dashed #007bff; /* Dashed border for file input */
+  padding: 10px;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.file-input:focus {
+  outline: none;
+  border-color: #0056b3; /* Change border color on focus */
+}
+
+.btn-primary {
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 16px;
+}
+
+small {
+  font-size: 12px;
+  color: #a3a3a3;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Title styling */
+.title {
+  text-align: center;
+  font-size: 2rem;
+  color: #2c3e50;
+  text-transform: uppercase;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+body {
+  background-color: #f8f9fa; /* Light background for contrast */
+}
+
+</style>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">University Library</a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/search">Search Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/upload">Upload Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/books">All Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Sign Out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h3 class="title mt-3 mb-3">Import Books</h3>
+    <h1 class="upload-header" th:text="${message}"></h1>
+    <form method="POST" action="/upload" enctype="multipart/form-data" class="upload-form">
+        <input type="file" name="file" class="file-input" />
+        <small class="text-center">Files Supported: XML</small>
+        <button type="submit" class="btn btn-primary" disabled="true">
+            Upload
+        </button>
+    </form>
+    <script type="text/javascript">
+        document.querySelector("input[type=file]").onchange = (event) => {
+          // Check if any files were selected
+          const hasFiles = event.target.files.length > 0;
+          console.log(hasFiles);
+          // Enable or disable the submit button based on file selection
+          document.querySelector("button[type=submit]").disabled = !hasFiles;
+        };
+    </script>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      - xxe-vulnerable-app
+
+networks:
+  xxe-vulnerable-app:
